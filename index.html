@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <!-- import lato google fonts -->
+    <link
+      href="https://fonts.googleapis.com/css2?family=Lato&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="/style.css" />
+    <!-- import jsdelivr to access the Framework from a CDN -->
+    <script
+      type="module"
+      src="https://cdn.jsdelivr.net/npm/@ionic/core/dist/ionic/ionic.esm.js"
+    ></script>
+    <script
+      nomodule
+      src="https://cdn.jsdelivr.net/npm/@ionic/core/dist/ionic/ionic.js"
+    ></script>
+    <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/npm/@ionic/core/css/ionic.bundle.css"
+    />
+
+    <title>DICE GAME</title>
+  </head>
+  <body>
+    <ion-app id="app-container">
+      <div class="container">
+        <ion-grid>
+          <ion-row
+            class="ion-justify-content-center"
+            class="ion-align-items-center"
+          >
+            <!-- FIRST GRID LINE NEW GAME -->
+            <ion-col size="auto" style="height: 60px">
+              <ion-icon class="red" name="add-circle-outline"></ion-icon>
+              <ion-row class="restart">NEW GAME</ion-row>
+            </ion-col>
+          </ion-row>
+          <!-- SECOND GRID LINE PLAYER AND POINT PLAYING-->
+          <ion-row>
+            <ion-col size="auto" style="height: 125px">
+              <div style="width: 240px" class="ion-text-end">PLAYER 1</div>
+            </ion-col>
+            <ion-col></ion-col>
+            <ion-col size="auto">
+              <div style="width: 240px"></div>
+            </ion-col>
+            <ion-col></ion-col>
+            <ion-col size="auto">
+              <div style="width: 240px" class="ion-text-start">PLAYER 2</div>
+            </ion-col>
+          </ion-row>
+          <!--THIRTH GRID LINE CURRENT SCORE ROUND AND DISPLAY DICE-->
+          <ion-row>
+            <ion-col size="auto" style="height: 175px">
+              <div style="width: 240px" class="ion-text-end">333</div>
+            </ion-col>
+            <ion-col></ion-col>
+            <ion-col size="auto">
+              <div style="width: 240px">
+                <img src="./assets/images/dice-1.png" alt="" />
+              </div>
+            </ion-col>
+            <ion-col></ion-col>
+            <ion-col size="auto">
+              <div style="width: 240px" class="ion-text-start">333</div>
+            </ion-col>
+          </ion-row>
+
+          <!-- ROLL DICE AND HOLD CURRENT GLOBAL SCORE-->
+          <ion-row>
+            <ion-col size="auto" style="height: 125px">
+              <div style="width: 240px" class="ion-text-end">CURRENT</div>
+            </ion-col>
+            <ion-col></ion-col>
+            <ion-col size="auto">
+              <div class="RollAndHold" style="width: 240px">
+                <ion-row>
+                  <ion-col>
+                    <ion-icon class="red" name="sync-outline">></ion-icon>
+                    <ion-row class="restart">ROLL DICE</ion-row>
+                  </ion-col> </ion-row
+                ><br />
+                <ion-row>
+                  <ion-col>
+                    <ion-icon class="red" name="log-in-outline"></ion-icon>
+                    <ion-row class="restart">HOLD</ion-row>
+                  </ion-col>
+                </ion-row>
+              </div>
+            </ion-col>
+
+            <ion-col></ion-col>
+            <ion-col size="auto">
+              <div style="width: 240px" class="ion-text-start">CURRENT</div>
+            </ion-col>
+          </ion-row>
+        </ion-grid>
+      </div>
+    </ion-app>
+
+    <!--import for to use Ionicons without Ionic Framework -->
+    <script
+      type="module"
+      src="https://cdn.jsdelivr.net/npm/ionicons/dist/ionicons/ionicons.esm.js"
+    ></script>
+    <script
+      nomodule
+      src="https://cdn.jsdelivr.net/npm/ionicons/dist/ionicons/ionicons.js"
+    ></script>
+  </body>
+</html>

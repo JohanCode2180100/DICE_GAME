@@ -1,0 +1,36 @@
+* {
+  font-family: Lato, sans-serif;
+}
+#app-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 820px;
+  height: 520px;
+  background: #865406;
+}
+.container {
+  
+  width: 800px;
+  height: 500px;
+  background: #f1f1f1;
+}
+ion-grid{
+  --ion-grid-columns:5;
+}
+ion-col {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+}
+img{
+  width: 150px;
+  height: 150px;
+}
+.red{
+  color: #EB4D4D;
+}
+.right{
+  text-align: right;
+}
