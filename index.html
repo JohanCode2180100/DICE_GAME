@@ -29,80 +29,74 @@
     <title>DICE GAME</title>
   </head>
   <body>
-    <ion-app id="app-container">
-      <div class="container">
+    <ion-app id="app">
+      <ion-content class="content">
+        <!-- first row icon + start game button -->
         <ion-grid>
-          <ion-row
-            class="ion-justify-content-center"
-            class="ion-align-items-center"
-          >
-            <!-- FIRST GRID LINE NEW GAME -->
-            <ion-col size="auto" style="height: 60px">
-              <ion-icon class="red" name="add-circle-outline"></ion-icon>
-              <ion-row class="restart">NEW GAME</ion-row>
-            </ion-col>
-          </ion-row>
-          <!-- SECOND GRID LINE PLAYER AND POINT PLAYING-->
           <ion-row>
-            <ion-col size="auto" style="height: 125px">
-              <div style="width: 240px" class="ion-text-end">PLAYER 1</div>
-            </ion-col>
-            <ion-col></ion-col>
-            <ion-col size="auto">
-              <div style="width: 240px"></div>
-            </ion-col>
-            <ion-col></ion-col>
-            <ion-col size="auto">
-              <div style="width: 240px" class="ion-text-start">PLAYER 2</div>
-            </ion-col>
+            <ion-col size="12"
+              ><ion-button id="StartGame" fill="clear" color="dark"
+                ><ion-icon class="red" name="add-circle-outline"></ion-icon>NEW
+                GAME</ion-button
+              ></ion-col
+            >
           </ion-row>
-          <!--THIRTH GRID LINE CURRENT SCORE ROUND AND DISPLAY DICE-->
-          <ion-row>
-            <ion-col size="auto" style="height: 175px">
-              <div style="width: 240px" class="ion-text-end">333</div>
+        </ion-grid>
+        <!-- Second row PLAYERS -->
+        <ion-grid >
+          <ion-row style="height: 100px" class="ion-align-items-center">
+            <ion-col size="3" >
+              <p class="right">PLAYER 1</p>
             </ion-col>
-            <ion-col></ion-col>
-            <ion-col size="auto">
-              <div style="width: 240px">
-                <img src="./assets/images/dice-1.png" alt="" />
-              </div>
-            </ion-col>
-            <ion-col></ion-col>
-            <ion-col size="auto">
-              <div style="width: 240px" class="ion-text-start">333</div>
-            </ion-col>
-          </ion-row>
-
-          <!-- ROLL DICE AND HOLD CURRENT GLOBAL SCORE-->
-          <ion-row>
-            <ion-col size="auto" style="height: 125px">
-              <div style="width: 240px" class="ion-text-end">CURRENT</div>
-            </ion-col>
-            <ion-col></ion-col>
-            <ion-col size="auto">
-              <div class="RollAndHold" style="width: 240px">
-                <ion-row>
-                  <ion-col>
-                    <ion-icon class="red" name="sync-outline">></ion-icon>
-                    <ion-row class="restart">ROLL DICE</ion-row>
-                  </ion-col> </ion-row
-                ><br />
-                <ion-row>
-                  <ion-col>
-                    <ion-icon class="red" name="log-in-outline"></ion-icon>
-                    <ion-row class="restart">HOLD</ion-row>
-                  </ion-col>
-                </ion-row>
-              </div>
-            </ion-col>
-
-            <ion-col></ion-col>
-            <ion-col size="auto">
-              <div style="width: 240px" class="ion-text-start">CURRENT</div>
+            <ion-col  size="1"><p>o</p></ion-col>
+            <ion-col offset=""></ion-col>
+            <ion-col size="1"><p>o</p></ion-col>
+            <ion-col size="3">
+              <p class="left">PLAYER 2</p>
             </ion-col>
           </ion-row>
         </ion-grid>
-      </div>
+
+        <ion-grid>
+          <ion-row class="ion-align-items-center" style="height: 200px" >
+            <ion-col size="3" class="round">72</ion-col>
+            <ion-col size="1"></ion-col>
+            <ion-col><img src="/assets/images/dice-1.png" alt=""></ion-col>
+            <ion-col size="1"></ion-col>
+            <ion-col size="3" class="round">72</ion-col>
+          </ion-row>
+        </ion-grid>
+        <ion-grid>
+          <ion-row class="ion-align-items-center" style="height: 200px">
+            <ion-col size="3">
+              <div class="current">
+              <p>CURRENT</p>
+              <p id="CurrentScorePlayer1" style="color:white">0</p>
+            </div>
+          </ion-col>
+            <ion-col size="1"></ion-col>
+            <ion-col size="4" class="align">
+              <ion-row class="ion-justify-content-center">
+                <ion-button id="RollDice" fill="clear" color="dark">
+                  <ion-icon class="red" name="sync-outline"></ion-icon>ROLL DICE
+                </ion-button> </ion-row
+              ><ion-row class="ion-justify-content-center">
+                <ion-button id="RollDice" fill="clear" color="dark">
+                  <ion-icon class="red" name="log-in-outline"></ion-icon>HOLD
+                </ion-button></ion-row
+              >
+            </ion-col>
+
+            <ion-col size="1"></ion-col>
+            <ion-col size="3">
+              <div class="current">
+              <p>CURRENT</p>
+              <p id="CurrentScorePlayer2"style="color:white">0</p>
+            </div>
+          </ion-col>
+          </ion-row>
+        </ion-grid>
+      </ion-content>
     </ion-app>
 
     <!--import for to use Ionicons without Ionic Framework -->

@@ -1,36 +1,53 @@
 * {
   font-family: Lato, sans-serif;
+  box-sizing: border-box;
 }
-#app-container {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  width: 820px;
-  height: 520px;
-  background: #865406;
+body {
+  margin: 0;
+  padding: 0;
 }
-.container {
-  
-  width: 800px;
-  height: 500px;
-  background: #f1f1f1;
+ion-app {
+  width: 1000px;
+  height: 620px;
 }
-ion-grid{
-  --ion-grid-columns:5;
+ion-grid {
+  background: #fdfbed;
 }
+
 ion-col {
-  display: flex;
-  align-items: center;
-  justify-content: center;
   text-align: center;
 }
-img{
-  width: 150px;
-  height: 150px;
+ion-icon {
+  color: red;
 }
-.red{
-  color: #EB4D4D;
+.align {
+  display: flex;
+  justify-content: space-around;
+  flex-direction: column;
 }
-.right{
+.right {
+  font-size: 45px;
   text-align: right;
+}
+.left {
+  font-size: 40px;
+  text-align: left;
+}
+.round {
+  color: red;
+  font-size: 70px;
+}
+p {
+  font-size: 30px;
+}
+img {
+  width: 200px;
+  height: 200px;
+}
+.Current-score2 {
+  background: red;
+  width: 160px;
+}
+.current {
+  background: red;
 }
