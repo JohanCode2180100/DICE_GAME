@@ -13,13 +13,13 @@ ion-app {
 }
 ion-grid {
   background: #fdfbed;
-  border: 1px solid green;
+  
 }
 
 ion-col {
   color: black;
   text-align: center;
-  border: 1px solid green;
+  
 }
 
 ion-icon {
@@ -63,13 +63,22 @@ img {
   align-items: center;
 }
 
-#player1play,
-#player2play {
+.active1 {
   width: 20px;
   height: 20px;
-  display: inline-block;
+  margin-left: 20px;
   background-color: red;
   border-radius: 50%;
+  visibility:hidden;
+}
+
+.active2 {
+  width: 20px;
+  height: 20px;
+  margin-right: 20px;
+  background-color: red;
+  border-radius: 50%;
+  visibility:hidden;
 }
 
 /* @media screen and (min-width:360px){
