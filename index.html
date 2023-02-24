@@ -30,7 +30,7 @@
   </head>
   <body>
     <ion-app id="app">
-      <ion-content fullscreen class="content">
+      <ion-content fullscreen="true" class="content">
         <!-- first row icon + start game button -->
         <ion-grid>
           <ion-row>
@@ -43,10 +43,14 @@
           </ion-row>
         </ion-grid>
         <!-- Second row PLAYERS -->
-        <ion-grid>
-          <ion-row style="height: 100px" class="ion-align-items-center">
+        <ion-grid class="second-row">
+          <ion-row
+            style="height: auto"
+            class="ion-align-items-center"
+            class="space"
+          >
             <ion-col size="3" class="playerDisplay">
-              <p>PLAYER 1</p>
+              <p class="victoryplayer1">PLAYER 1</p>
               <span class="active1"></span>
             </ion-col>
             <ion-col size="1"></ion-col>
@@ -55,13 +59,13 @@
 
             <ion-col size="3" class="playerDisplay">
               <span class="active2"></span>
-              <p>PLAYER 2</p>
+              <p class="victoryplayer2">PLAYER 2</p>
             </ion-col>
           </ion-row>
         </ion-grid>
         <!-- ROUND SCORE AND DICE PICTURES -->
         <ion-grid>
-          <ion-row style="height: 250px">
+          <ion-row style="height: auto">
             <ion-col size="3" class="round" id="roundScore1"></ion-col>
             <ion-col size="1"></ion-col>
             <ion-col><img class="dicePictures" /></ion-col>
@@ -72,7 +76,7 @@
 
         <!-- CUURENT AND ROLL DICE - HOLD BUTTON -->
         <ion-grid>
-          <ion-row class="ion-align-items-center" style="height: 200px">
+          <ion-row class="ion-align-items-center" style="height: auto">
             <ion-col size="3">
               <div class="current">
                 <p style="color: black">CURRENT</p>

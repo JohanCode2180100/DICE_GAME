@@ -3,7 +3,8 @@ const active1 = document.querySelector(".active1");
 const active2 = document.querySelector(".active2");
 const rollDice = document.querySelector("#rollDice");
 const img = document.querySelector(".dicePictures");
-
+const victoryP1 = document.querySelector(".victoryplayer1");
+const victoryP2 = document.querySelector(".victoryplayer1");
 const hold = document.querySelector("#hold");
 
 // Score round player
@@ -19,13 +20,11 @@ let globalScore = 0;
 
 let player1 = {
   currentScore: currentScore_player1,
-  globalScore: roundScore_player1,
-  winner: false,
+  roundScore: roundScore_player1,
 };
 let player2 = {
   currentScore: currentScore_player2,
-  globalScore: roundScore_player2,
-  winner: false,
+  roundScore: roundScore_player2,
 };
 
 const newGame = () => {
@@ -52,7 +51,7 @@ console.log(gamePlaying);
 let imgDisplay = (rand) => (img.src = `./assets/images/dice-${rand}.png`);
 let rand = 0;
 const toRollDice = () => {
-  if ((gamePlaying = true)) {
+  if (gamePlaying === true) {
     let rand = Math.floor(Math.random() * 6) + 1;
     imgDisplay(rand);
     if (rand >= 2) {
@@ -66,25 +65,22 @@ const toRollDice = () => {
   } else {
     alert("CLIQUER SUR NEW GAME POUR LANCER UNE PARTIE");
   }
-  console.log(gamePlaying);
-  console.log(currentScore);
 };
 
 const saveTheScore = () => {
-  if ((gamePlaying = true)) {
-    activePlayer.globalScore.textContent =
-      currentScore + Number(activePlayer.globalScore.textContent);
-    if (activePlayer.globalScore.textContent >= 100) {
-      activePlayer.winner = true;
-      img.style.visibility = "hidden";
-      activePlayer.globalScore.textContent = "WINNER";
+  if (gamePlaying === true) {
+    activePlayer.roundScore.textContent =
+      currentScore + Number(activePlayer.roundScore.textContent);
+    if (activePlayer.roundScore.textContent >= 100) {
+      img.style.display = "none";
+      activePlayer.roundScore.textContent = "WIN";
+
       gamePlaying = false;
     } else {
       turnPlayer();
     }
   }
 };
-
 //start New Game button
 startGame.addEventListener("click", newGame);
 
