@@ -15,6 +15,7 @@ let gamePlaying = false;
 let nb = 0;
 let activePlayer;
 let currentScore = 0;
+let globalScore = 0;
 
 let player1 = {
   currentScore: currentScore_player1,
@@ -66,6 +67,22 @@ const toRollDice = () => {
     alert("CLIQUER SUR NEW GAME POUR LANCER UNE PARTIE");
   }
   console.log(gamePlaying);
+  console.log(currentScore);
+};
+
+const saveTheScore = () => {
+  if ((gamePlaying = true)) {
+    activePlayer.globalScore.textContent =
+      currentScore + Number(activePlayer.globalScore.textContent);
+    if (activePlayer.globalScore.textContent >= 100) {
+      activePlayer.winner = true;
+      img.style.visibility = "hidden";
+      activePlayer.globalScore.textContent = "WINNER";
+      gamePlaying = false;
+    } else {
+      turnPlayer();
+    }
+  }
 };
 
 //start New Game button
@@ -73,9 +90,10 @@ startGame.addEventListener("click", newGame);
 
 rollDice.addEventListener("click", toRollDice);
 
-
+hold.addEventListener("click", saveTheScore);
 
 let turnPlayer = () => {
+  currentScore = 0;
   if (activePlayer === player1) {
     activePlayer = player2;
     active2.style.visibility = "visible";
