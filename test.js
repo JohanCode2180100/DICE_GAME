@@ -20,7 +20,7 @@ let roundScore_player2 = document.querySelector("#roundScore2");
 
 let currentScore,
   roundScore = 0;
-let activePlayer;
+
 let Gaming = false;
 
 let player1 = {
@@ -33,12 +33,12 @@ let player2 = {
   roundScore: roundScore_player2,
   victory: false,
 };
+let activePlayer = player1;
 
 const newGame = () => {
-  let nb = Math.floor(Math.random() * 2) + 1;
-  alert(`Player ${nb} start the game`);
+  // let nb = Math.floor(Math.random() * 2) + 1;
 
-  activePlayer = `player${nb}`;
+  // alert(`Player${nb} start the game`);
   console.log(activePlayer); //check
   if (nb === 1) {
     active1.style.visibility = "visible";
@@ -48,13 +48,13 @@ const newGame = () => {
     active1.style.visibility = "hidden";
   }
   Gaming = true;
-
   currentScore_player1.textContent = 0;
   currentScore_player2.textContent = 0;
   roundScore_player1 = 0;
   roundScore_player2.textContent = 0;
+  currentScore = 0;
 };
-
+console.log(activePlayer);
 startGame.addEventListener("click", newGame);
 let imgDisplay = (nb) => (img.src = `./assets/images/dice-${nb}.png`);
 
@@ -63,17 +63,29 @@ const toRollDice = () => {
     let rand = Math.floor(Math.random() * 6) + 1;
     imgDisplay(rand);
     if (rand >= 2) {
-      currentScore += rand;
-      if (activePlayer === 1) {
-        currentScore_player1.textContent = currentScore;
-      } else {
-        currentScore_player2.textContent = currentScore;
-      }
-    } else {
-      currentScore = 0;
-      // turnPlayer();
-    }
-  }
-};
+//       currentScore += rand;
+//       currentScore_player1.textContent = currentScore;
+//     } else {
+//       currentScore = 0;
+//       turnPlayer();
+//     }
+//   } else {
+//     console.log("Click NEW GAME BUTTON for a new game");
+//   }
+// };
 
-rollDice.addEventListener("click", toRollDice);
+// rollDice.addEventListener("click", toRollDice);
+
+// let turnPlayer = () => {
+//   currentScore_player1.textContent = currentScore;
+//   currentScore_player2.textContent = currentScore;
+//   if (activePlayer === player1) {
+//     activePlayer === player2;
+//     active2.style.visibility = "visible";
+//     active1.style.visibility = "hidden";
+//   } else {
+//     activePlayer === player1;
+//     active1.style.visibility = "visible";
+//     active2.style.visibility = "hidden";
+//   }
+// };

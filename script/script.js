@@ -1,105 +1,88 @@
-//New game button
-const startGame = document.querySelector("#StartGame");
+const startGame = document.querySelector("#startGame");
 const active1 = document.querySelector(".active1");
 const active2 = document.querySelector(".active2");
-// scrore round player
-
-//roll Dice button
 const rollDice = document.querySelector("#rollDice");
-// Hold button
-const hold = document.querySelector("#hold");
-
-// Dice pictures
 const img = document.querySelector(".dicePictures");
 
-//variables games
-let RoundScore, activePlayer, gamePlaying;
+const hold = document.querySelector("#hold");
 
-initGame();
+// Score round player
+const currentScore_player1 = document.getElementById("currentScorePlayer1");
+const currentScore_player2 = document.getElementById("currentScorePlayer2");
+const roundScore_player1 = document.querySelector("#roundScore1");
+const roundScore_player2 = document.querySelector("#roundScore2");
+let gamePlaying = false;
+let nb = 0;
+let activePlayer;
+let currentScore = 0;
 
-let Player1 = {
-  currentScore: 26,
-  roundScore: 10,
+let player1 = {
+  currentScore: currentScore_player1,
+  globalScore: roundScore_player1,
+  winner: false,
 };
-let Player2 = {
-  currentScore: 25,
-  roundScore: 10,
-};
-let imgDisplay = (rand) => (img.src = `./assets/images/dice-${rand}.png`);
-let RollTheDice = () => {
-  let rand = Math.floor(Math.random() * 6) + 1;
-
-  imgDisplay(rand);
-
-  let nextPlayer = () => {
-    if (activePlayer === 1) {
-      this.Player1.currentScore = 0;
-      this.Player1.currentScore.textContent = 0;
-      this.activePlayer === player2;
-      this.active2.style.visibility = "visible";
-      this.active1.style.visibility = "hidden";
-    } else {
-      this.activePlayer === 2;
-      this.Player2.currentScore = 0;
-      this.Player2.currentScore.textContent = 0;
-      this.active1.style.visibility = "visible";
-      this.active2.style.visibility = "hidden";
-    }
-  };
-
-  if (rand !== 1) {
-    activePlayer.currentScore += rand;
-    document.getElementById("CurrentScore" + activePlayer).textContent =
-      roundScore;
-    activePlayer.currentScore.textContent = currentScore;
-  } else {
-    nextPlayer();
-  }
-};
-let holdToRound = () => {
-  // roundScore = currentScore += roundScore;
-  // currentScore = 0;
-  // activePlayer.roundScore.textContent = roundScore;
-  // nextPlayer();
+let player2 = {
+  currentScore: currentScore_player2,
+  globalScore: roundScore_player2,
+  winner: false,
 };
 
-//functions
-
-let startNewGame = () => {
-  let nb = Math.floor(Math.random() * 2) + 1;
-  alert(`Player ${nb} start the game`);
-
+const newGame = () => {
+  gamePlaying = true;
+  //choice start player
+  nb = Math.floor(Math.random() * 2) + 1;
+  alert(`Player ${nb} start the game ...`);
   if (nb === 1) {
-    activePlayer === Player1;
     active1.style.visibility = "visible";
     active2.style.visibility = "hidden";
+    activePlayer = player1;
   } else {
-    activePlayer === Player2;
     active2.style.visibility = "visible";
     active1.style.visibility = "hidden";
+    activePlayer = player2;
+  }
+  currentScore_player1.textContent = 0;
+  currentScore_player2.textContent = 0;
+  roundScore_player1.textContent = 0;
+  roundScore_player2.textContent = 0;
+  console.log(activePlayer); // check
+};
+console.log(gamePlaying);
+let imgDisplay = (rand) => (img.src = `./assets/images/dice-${rand}.png`);
+let rand = 0;
+const toRollDice = () => {
+  if ((gamePlaying = true)) {
+    let rand = Math.floor(Math.random() * 6) + 1;
+    imgDisplay(rand);
+    if (rand >= 2) {
+      currentScore += rand;
+      activePlayer.currentScore.textContent = currentScore;
+    } else {
+      currentScore = 0;
+      activePlayer.currentScore.textContent = currentScore;
+      turnPlayer();
+    }
+  } else {
+    alert("CLIQUER SUR NEW GAME POUR LANCER UNE PARTIE");
+  }
+  console.log(gamePlaying);
+};
+
+//start New Game button
+startGame.addEventListener("click", newGame);
+
+rollDice.addEventListener("click", toRollDice);
+
+
+
+let turnPlayer = () => {
+  if (activePlayer === player1) {
+    activePlayer = player2;
+    active2.style.visibility = "visible";
+    active1.style.visibility = "hidden";
+  } else {
+    activePlayer = player1;
+    active1.style.visibility = "visible";
+    active2.style.visibility = "hidden";
   }
 };
-
-
-
-rollDice.addEventListener("click", () => RollTheDice());
-hold.addEventListener("click", () => holdToRound());
-
-document.getElementById("CurrentScorePlayer1").textContent =
-  Player1.currentScore;
-document.getElementById("CurrentScorePlayer2").textContent =
-  Player2.currentScore;
-document.getElementById("RoundScore1").textContent = Player1.roundScore;
-document.getElementById("RoundScore2").textContent = Player2.roundScore;
-
-let initGame = () => {
-  //init the score for a new game
-  img.style.display = "none";
-  document.getElementById("CurrentScorePlayer1").textContent = 0;
-  document.getElementById("CurrentScorePlayer2").textContent = 0;
-  document.getElementById("RoundScore1").textContent = 0;
-  document.getElementById("RoundScore2").textContent = 0;
-  gamePlaying = true;
-};
-
-startGame.addEventListener("click", () => initGame());
