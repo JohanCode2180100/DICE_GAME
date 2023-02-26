@@ -11,7 +11,7 @@
       href="https://fonts.googleapis.com/css2?family=Lato&display=swap"
       rel="stylesheet"
     />
-    <link rel="stylesheet" href="/style.css" />
+    <link rel="stylesheet" href="./style.css" />
     <!-- import jsdelivr to access the Framework from a CDN -->
     <script
       type="module"
@@ -30,12 +30,12 @@
   </head>
   <body>
     <ion-app id="app">
-      <ion-content class="content">
+      <ion-content fullscreen="true" class="content">
         <!-- first row icon + start game button -->
         <ion-grid>
           <ion-row>
             <ion-col size="12"
-              ><ion-button id="StartGame" fill="clear" color="dark"
+              ><ion-button id="startGame" fill="clear" color="dark"
                 ><ion-icon class="red" name="add-circle-outline"></ion-icon>NEW
                 GAME</ion-button
               ></ion-col
@@ -43,45 +43,54 @@
           </ion-row>
         </ion-grid>
         <!-- Second row PLAYERS -->
-        <ion-grid >
-          <ion-row style="height: 100px" class="ion-align-items-center">
-            <ion-col size="3" >
-              <p class="right">PLAYER 1</p>
+        <ion-grid class="second-row">
+          <ion-row
+            style="height: auto"
+            class="ion-align-items-center"
+            class="space"
+          >
+            <ion-col size="3" class="playerDisplay">
+              <p class="victoryplayer1">PLAYER 1</p>
+              <span class="active1"></span>
             </ion-col>
-            <ion-col  size="1"><p>o</p></ion-col>
+            <ion-col size="1"></ion-col>
             <ion-col offset=""></ion-col>
-            <ion-col size="1"><p>o</p></ion-col>
-            <ion-col size="3">
-              <p class="left">PLAYER 2</p>
+            <ion-col size="1"></ion-col>
+
+            <ion-col size="3" class="playerDisplay">
+              <span class="active2"></span>
+              <p class="victoryplayer2">PLAYER 2</p>
             </ion-col>
+          </ion-row>
+        </ion-grid>
+        <!-- ROUND SCORE AND DICE PICTURES -->
+        <ion-grid>
+          <ion-row style="height: auto">
+            <ion-col size="3" class="round" id="roundScore1"></ion-col>
+            <ion-col size="1"></ion-col>
+            <ion-col><img class="dicePictures" /></ion-col>
+            <ion-col size="1"></ion-col>
+            <ion-col size="3" class="round" id="roundScore2"></ion-col>
           </ion-row>
         </ion-grid>
 
+        <!-- CUURENT AND ROLL DICE - HOLD BUTTON -->
         <ion-grid>
-          <ion-row class="ion-align-items-center" style="height: 200px" >
-            <ion-col size="3" class="round">72</ion-col>
-            <ion-col size="1"></ion-col>
-            <ion-col><img src="/assets/images/dice-1.png" alt=""></ion-col>
-            <ion-col size="1"></ion-col>
-            <ion-col size="3" class="round">72</ion-col>
-          </ion-row>
-        </ion-grid>
-        <ion-grid>
-          <ion-row class="ion-align-items-center" style="height: 200px">
+          <ion-row class="ion-align-items-center" style="height: auto">
             <ion-col size="3">
               <div class="current">
-              <p>CURRENT</p>
-              <p id="CurrentScorePlayer1" style="color:white">0</p>
-            </div>
-          </ion-col>
+                <p style="color: black">CURRENT</p>
+                <p id="currentScorePlayer1" style="color: white"></p>
+              </div>
+            </ion-col>
             <ion-col size="1"></ion-col>
             <ion-col size="4" class="align">
               <ion-row class="ion-justify-content-center">
-                <ion-button id="RollDice" fill="clear" color="dark">
+                <ion-button id="rollDice" fill="clear" color="dark">
                   <ion-icon class="red" name="sync-outline"></ion-icon>ROLL DICE
                 </ion-button> </ion-row
               ><ion-row class="ion-justify-content-center">
-                <ion-button id="RollDice" fill="clear" color="dark">
+                <ion-button id="hold" fill="clear" color="dark">
                   <ion-icon class="red" name="log-in-outline"></ion-icon>HOLD
                 </ion-button></ion-row
               >
@@ -90,10 +99,10 @@
             <ion-col size="1"></ion-col>
             <ion-col size="3">
               <div class="current">
-              <p>CURRENT</p>
-              <p id="CurrentScorePlayer2"style="color:white">0</p>
-            </div>
-          </ion-col>
+                <p style="color: black">CURRENT</p>
+                <p id="currentScorePlayer2" style="color: white"></p>
+              </div>
+            </ion-col>
           </ion-row>
         </ion-grid>
       </ion-content>
@@ -108,5 +117,6 @@
       nomodule
       src="https://cdn.jsdelivr.net/npm/ionicons/dist/ionicons/ionicons.js"
     ></script>
+    <script src="./script/script.js"></script>
   </body>
 </html>
